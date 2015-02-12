@@ -1,9 +1,9 @@
-require_relative '../src/memory'
+require_relative '../src/core/memory'
 
-describe Memory, '#memory' do
+describe Core::Memory, '#memory' do
 
   before(:each) do
-    @m = Memory.new
+    @m = Core::Memory.new
   end
 
   context 'reading' do
