@@ -4,25 +4,23 @@ module Core
 
     def initialize
       @flags = {
-        carry: :off,
-        parity: :off,
-        overflow: :off,
-        zero: :off
+        carry: false,
+        parity: false,
+        overflow: false,
+        zero: false
       }
     end
 
     def set_on(flag)
-      @flags[flag] = :on
+      @flags[flag] = true
     end
 
     def set_off(flag)
-      @flags[flag] = :off
+      @flags[flag] = false
     end
 
     def on?(flag)
-      return true if @flags[flag].eql? :on
-      false
-      #@flags[flag].eql? :on  ? true : false
+      @flags[flag]
     end
   end
 
