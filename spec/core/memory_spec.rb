@@ -1,4 +1,4 @@
-require_relative '../src/core/memory'
+require_relative '../../src/core/memory'
 
 describe Core::Memory, '#memory' do
 

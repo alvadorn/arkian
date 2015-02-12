@@ -1,4 +1,4 @@
-require_relative '../src/core/flags'
+require_relative '../../src/core/flags'
 
 describe Core::Flags, '#flags' do
 

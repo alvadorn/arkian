@@ -1,4 +1,4 @@
-require_relative '../src/core/register'
+require_relative '../../src/core/register'
 
 describe Core::Register, '#register' do
   before do
