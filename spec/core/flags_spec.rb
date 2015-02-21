@@ -1,7 +1,6 @@
 require_relative '../../src/core/flags'
 
 describe Core::Flags, '#flags' do
-
   before do
     @flags = Core::Flags.new
   end
@@ -15,9 +14,8 @@ describe Core::Flags, '#flags' do
     end
 
     it 'set carry on and verify' do
-       @flags.set_on :carry
-       expect(@flags.on? :carry).to be true
+      @flags.on :carry
+      expect(@flags.on? :carry).to be true
     end
   end
-
 end

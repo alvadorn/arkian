@@ -1,7 +1,5 @@
 module Core
-
   class Flags
-
     def initialize
       @flags = {
         carry: false,
@@ -11,11 +9,11 @@ module Core
       }
     end
 
-    def set_on(flag)
+    def on(flag)
       @flags[flag] = true
     end
 
-    def set_off(flag)
+    def off(flag)
       @flags[flag] = false
     end
 
@@ -23,5 +21,4 @@ module Core
       @flags[flag]
     end
   end
-
 end

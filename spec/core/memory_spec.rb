@@ -1,7 +1,6 @@
 require_relative '../../src/core/memory'
 
 describe Core::Memory, '#memory' do
-
   before(:each) do
     @m = Core::Memory.new
   end
@@ -28,10 +27,9 @@ describe Core::Memory, '#memory' do
     end
 
     it 'a qword' do
-        value = 0x3956_8912_7896_4100
-        @m.set(65000, value, :qword)
-        expect(@m.get(65000, :qword)).to eq value
+      value = 0x3956_8912_7896_4100
+      @m.set(65_000, value, :qword)
+      expect(@m.get(65_000, :qword)).to eq value
     end
   end
-
 end

@@ -55,8 +55,5 @@ describe Core::Register, '#register' do
       expect(@register.high).to eq(0xF7)
       expect(@register.low).to eq(0x36)
     end
-
   end
-
-
 end
