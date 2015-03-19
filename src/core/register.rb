@@ -5,16 +5,16 @@ module Core
     end
 
     def set(value, size = :word)
-      @info =
-        if size == :low
-          { word: (@info[:high] << 8) + value, high: @info[:high],
-            low: value }
-        elsif size == :high
-          { word: (value << 8) + @info[:low], high: value,
-            low: @info[:low] }
-        else
-          { word: value, high: (value >> 8) & 0xFF, low: value & 0xFF }
-      end
+      @info = case size
+							when :low
+								{ word: (@info[:high] << 8) + value, high: @info[:high],
+									low: value }
+							when :high
+								{ word: (value << 8) + @info[:low], high: value,
+									low: @info[:low] }
+							else
+								{ word: value, high: (value >> 8) & 0xFF, low: value & 0xFF }
+							end
     end
 
     def low
