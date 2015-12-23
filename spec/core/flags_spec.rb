@@ -1,21 +1,23 @@
 require_relative '../../src/core/flags'
+require 'minitest/autorun'
 
-describe Core::Flags, '#flags' do
+describe Core::Flags do
   before do
     @flags = Core::Flags.new
   end
 
-  context 'verifying' do
+  describe 'verifying' do
     it 'recently initialized are off' do
-      expect(@flags.on? :carry).to be false
-      expect(@flags.on? :overflow).to be false
-      expect(@flags.on? :parity).to be false
-      expect(@flags.on? :zero).to be false
+
+      @flags.on?(:carry).wont_be_same_as true
+      @flags.on?(:overflow).wont_be_same_as true
+      @flags.on?(:parity).wont_be_same_as true
+      @flags.on?(:zero).wont_be_same_as true
     end
 
     it 'set carry on and verify' do
       @flags.on :carry
-      expect(@flags.on? :carry).to be true
+      @flags.on?(:carry).must_be_same_as true
     end
   end
 end

@@ -1,11 +1,11 @@
 
 require 'rake'
-require 'rspec/core/rake_task'
+require 'rake/testtask'
 desc 'Run specs'
-RSpec::Core::RakeTask.new do |t|
-	t.pattern = './spec/**/*_spec.rb'
+Rake::TestTask.new do |t|
+  t.libs << 'src'
+  t.verbose = true
+	t.test_files = Dir.glob('spec/**/*_spec.rb')
 end
 
-
-task :default => :spec
-task :test => :spec
+task :default => :test

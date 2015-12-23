@@ -1,4 +1,4 @@
 source 'https://rubygems.org/'
 
-gem 'rspec', '~> 3.4.0', group: [:test, :deployment]
+gem 'minitest', '~> 5.4.0'
 gem 'rake'

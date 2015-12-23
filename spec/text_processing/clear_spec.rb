@@ -1,8 +1,9 @@
 require_relative '../../src/text_processing/clearify'
+require 'minitest/autorun'
 
 describe 'TextProcessing::clearify', '#clearify' do
 
-  context 'using random text' do
+  describe 'using random text' do
 
       it 'and trying to clearify' do
           text = "I\'m sexy  and I know it\t.
@@ -12,12 +13,12 @@ describe 'TextProcessing::clearify', '#clearify' do
           expected = [["I\'m","sexy","and","I","know","it","."],["And",
             "everything", "I", "do"], ["is","revered."]]
 
-          expect(result).to eq(expected)
+          result.must_equal expected
       end
 
   end
 
-  context 'using some mnemonic expressions' do
+  describe 'using some mnemonic expressions' do
 
     it 'it would return separated' do
       mnemonics = "add ax, 25
@@ -29,7 +30,7 @@ describe 'TextProcessing::clearify', '#clearify' do
         ["inc", "cx"], ["ret"]]
 
       result = TextProcessing.clearify(mnemonics)
-      expect(result).to eq(expected)
+      result.must_equal expected
 
     end
 

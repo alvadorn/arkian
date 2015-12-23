@@ -1,25 +1,26 @@
 require_relative '../../src/parser/symbol'
 require_relative '../../src/parser/token'
+require 'minitest/autorun'
 
-describe 'Emulator::Parser::Symbol' do
-  context 'adding some tokens' do
+describe Emulator::Parser::SymbolsTable do
+  describe 'adding some tokens' do
     before do
       @table = Emulator::Parser::SymbolsTable.new
     end
 
     it 'and verifying table size with no add' do
-      expect(@table.length).to eq 0
+      @table.length.must_equal 0
     end
 
     it 'and verify table size after one add' do
       @table.add "org"
-      expect(@table.length).to eq 1
+      @table.length.must_equal 1
     end
 
     it 'and verify table size after two equal adds' do
       @table.add "org"
       @table.add "org"
-      expect(@table.length).to eq 1
+      @table.length.must_equal 1
     end
 
   end
