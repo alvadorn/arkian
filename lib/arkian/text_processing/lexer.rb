@@ -1,26 +1,23 @@
 require_relative '../parser/symbol'
-require_relative './buffer'
+require_relative 'buffer'
 
-module Emulator
+module Arkian
   module TextProcessing
     class Lexer
-
-      END_STATES = [ 3, 5, 6, 8, 10, 11, 12, 15, 22]
-      END_CONTINUE_STATES = [3, 5, 6, 8, 11, 12]
+      END_STATES = [3, 5, 6, 8, 10, 11, 12, 15, 22].freeze
+      END_CONTINUE_STATES = [3, 5, 6, 8, 11, 12].freeze
 
       attr_reader :symbols
-      def initialize(filename = "")
-        @symbols = Emulator::Parser::SymbolsTable.new
+      def initialize(filename = '')
+        @symbols = Arkian::Parser::SymbolsTable.new
         @buffer = Buffer.new filename
       end
 
       def run
-        str = ""
-        received = ""
+        str = ''
+        received = ''
         state = 0
-        while received.class == String
-          received = @buffer.next_char
-        end
+        received = @buffer.next_char while received.class == String
       end
 
       def string_process(str)
@@ -29,14 +26,13 @@ module Emulator
         str.each_char do |char|
           old_state = state
           state = next_state(char, state)
-          if state == -1
-            state = old_state
-          end
+          state = old_state if state == -1
         end
         state
       end
 
       private
+
       def is_ender_continue_state?(state)
         END_CONTINUE_STATES.include? state
       end
@@ -105,19 +101,19 @@ module Emulator
       end
 
       def from_state_zero(char)
-        if char == "0"
+        if char == '0'
           1
         elsif char =~ /[1-9]/
           6
-        elsif char == "-"
+        elsif char == '-'
           9
-        elsif char == ":"
+        elsif char == ':'
           10
         elsif letter? char
           11
-        elsif char == "["
+        elsif char == '['
           13
-        elsif char == ","
+        elsif char == ','
           22
         else
           -1
@@ -155,7 +151,7 @@ module Emulator
       def from_state_six(char)
         if digit? char
           6
-        elsif char == "."
+        elsif char == '.'
           7
         else
           -1
@@ -351,12 +347,12 @@ module Emulator
       end
 
       def close_bracket?(char)
-        char == "]"
+        char == ']'
       end
 
-      alias_method :from_state_three, :from_state_two
-      alias_method :from_state_five, :from_state_four
-      alias_method :from_state_eight, :from_state_seven
+      alias from_state_three from_state_two
+      alias from_state_five from_state_four
+      alias from_state_eight from_state_seven
     end
   end
 end

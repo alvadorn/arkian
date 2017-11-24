@@ -1,6 +1,6 @@
 require_relative 'token'
 
-module Emulator
+module Arkian
   module Parser
     class SymbolsTable
       def initialize
@@ -16,11 +16,11 @@ module Emulator
       end
 
       private
+
       def exists?(lexeme)
         @table.select { |t| t.lexeme == lexeme }
         @table.any?
       end
-
     end
   end
 end

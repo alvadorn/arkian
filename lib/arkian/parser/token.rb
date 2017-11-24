@@ -1,4 +1,4 @@
-module Emulator
+module Arkian
   module Parser
     class Token
       attr_accessor :lexeme

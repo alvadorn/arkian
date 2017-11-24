@@ -1,10 +1,8 @@
-require_relative '../../src/core/register'
+require 'arkian/core/register'
 
-require 'minitest/autorun'
-
-describe Emulator::Core::Register do
+describe Arkian::Core::Register do
   before do
-    @register = Emulator::Core::Register.new
+    @register = Arkian::Core::Register.new
   end
 
   describe 'allocating new register' do

@@ -1,4 +1,4 @@
-module Emulator
+module Arkian
   module TextProcessing
     class Buffer
       def initialize(filename)

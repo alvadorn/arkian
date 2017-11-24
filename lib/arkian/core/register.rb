@@ -1,4 +1,4 @@
-module Emulator
+module Arkian
   module Core
     class Register
       attr_reader :word, :high, :low

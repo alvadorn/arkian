@@ -1,14 +1,12 @@
-require_relative '../../src/core/flags'
-require 'minitest/autorun'
+require 'arkian/core/flags'
 
-describe Core::Flags do
+describe Arkian::Core::Flags do
   before do
-    @flags = Core::Flags.new
+    @flags = Arkian::Core::Flags.new
   end
 
   describe 'verifying' do
     it 'recently initialized are off' do
-
       @flags.on?(:carry).wont_be_same_as true
       @flags.on?(:overflow).wont_be_same_as true
       @flags.on?(:parity).wont_be_same_as true

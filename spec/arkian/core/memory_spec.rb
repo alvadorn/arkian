@@ -1,10 +1,8 @@
-require_relative '../../src/core/memory'
+require 'arkian/core/memory'
 
-require 'minitest/autorun'
-
-describe Core::Memory do
+describe Arkian::Core::Memory do
   before(:each) do
-    @m = Core::Memory.new
+    @m = Arkian::Core::Memory.new
   end
 
   describe 'reading' do
