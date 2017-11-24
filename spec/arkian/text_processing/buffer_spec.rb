@@ -1,3 +1,4 @@
+require 'spec_helper'
 require 'arkian/text_processing/buffer'
 
 describe Arkian::TextProcessing::Buffer do

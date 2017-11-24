@@ -1,3 +1,4 @@
+require 'spec_helper'
 require 'arkian/parser/symbol'
 
 describe Arkian::Parser::SymbolsTable do

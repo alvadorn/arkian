@@ -1,3 +1,4 @@
+require 'spec_helper'
 require 'arkian/core/memory'
 
 describe Arkian::Core::Memory do

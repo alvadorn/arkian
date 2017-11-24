@@ -1,3 +1,4 @@
+require 'spec_helper'
 require 'arkian/text_processing/clearify'
 
 describe 'TextProcessing::clearify', '#clearify' do
